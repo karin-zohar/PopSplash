@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubbles</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body onload="onInit()">
+    <h1>Bubbles</h1>
+    
+    <section class="stats">
+        <div class="lives">
+            <p>lives: <span></span></p>
+        </div>
+    </section>
+    <div class="game-container">
+        <ul class="bubbles">
+            <li>
+                <div class="bubble"></div>
+            </li>
+        </ul>
+    </div>
+    <div class="tools">
+        <button class="btn" onClick="onStartGame()">Start</button>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/game.controller.js"></script>
+</body>
+
+</html>
