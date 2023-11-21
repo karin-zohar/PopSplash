@@ -11,7 +11,7 @@ function renderlives() {
 function renderBubbles() {
     let strHTML = gBubbles.map(bubble => `
     <li>
-    <div class="bubble" style="margin-top:${bubble.bubbleY}%;margin-left:${bubble.bubbleX}%">${bubble.bubbleX}</div>
+    <div class="bubble" style="background-color:#${bubble.color};margin-top:${bubble.bubbleY}%;margin-left:${bubble.bubbleX}%"></div>
     </li>
     `
     )

@@ -22,7 +22,7 @@ function startGame() {
 }
 
 function addBubble() {
-    const newBubble = {bubbleX: getRandomInt(0,90), bubbleY: 0, isPopped: false}
+    const newBubble = {bubbleX: getRandomInt(0,90), bubbleY: 0, color: getColor() ,isPopped: false}
     gBubbles.push(newBubble)
     gGravityInterval = setInterval(updateGravity, 2000, gBubbles.indexOf(newBubble))
     renderBubbles()
