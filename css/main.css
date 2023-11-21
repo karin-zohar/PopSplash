@@ -1,5 +1,6 @@
 body {
     background-color: whitesmoke;
+    box-sizing: border-box;
 }
 
 h1 {
@@ -9,6 +10,8 @@ h1 {
 
 li, ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 button {
@@ -21,8 +24,14 @@ button {
     background-color:lightcyan;
     border: 2px solid darkblue;
     margin: auto;
+    box-sizing: border-box;
 }
 
+.game-container ul {
+    height: 100%;
+    width: 100%;
+    /* background-color: brown; */
+}
 .bubble {
     width: 80px;
     height: 80px;

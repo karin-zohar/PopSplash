@@ -1,4 +1,5 @@
 const LIFE = '💗'
+const SPEED = 1
 const gGame = {
     lives: 4,
     score: 0
@@ -6,7 +7,8 @@ const gGame = {
 
 const gBubbles = []
 
-let gBubbleInterval
+let gNewBubbleInterval
+let gGravityInterval
 
 function onInit() {
     console.log('hello')
@@ -15,17 +17,28 @@ function onInit() {
 function startGame() {
     console.log('starting game');
     console.log('gGame: ', gGame)
-    gBubbleInterval = setInterval(addBubble, 3000)
+    gNewBubbleInterval = setInterval(addBubble, 3000)
 
 }
 
 function addBubble() {
-    const newBubble = {bubbleX: 5, bubbleY: 0, isPopped: false}
+    const newBubble = {bubbleX: getRandomInt(0,90), bubbleY: 0, isPopped: false}
     gBubbles.push(newBubble)
+    gGravityInterval = setInterval(updateGravity, 2000, gBubbles.indexOf(newBubble))
     renderBubbles()
-    console.log('gBubbles: ', gBubbles)
 }
 
+function updateGravity(bubbleIndex) {
+    const currBubble = gBubbles[bubbleIndex]
+    if (!currBubble) return
+    gBubbles[bubbleIndex].bubbleY += SPEED
+
+    if (currBubble.bubbleY > 5) {
+        //once the bubble reaches this low height, remove it
+        gBubbles.splice(bubbleIndex,1) 
+    }
+    renderBubbles()
+}
 
 function updateLives() {
     gGame.lives--
@@ -34,7 +47,7 @@ function updateLives() {
 
 function gameOver() {
     console.log('game is over')
-    clearInterval(gBubbleInterval)
+    clearInterval(gNewBubbleInterval)
     //displayGameOver()
 }
 
