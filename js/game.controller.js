@@ -10,8 +10,8 @@ function renderlives() {
 
 function renderBubbles() {
     let strHTML = gBubbles.map(bubble => `
-    <li>
-    <div class="bubble" style="background-color:#${bubble.color};margin-top:${bubble.bubbleY}%;margin-left:${bubble.bubbleX}%"></div>
+    <li class="bubble" style="background-color:#${bubble.color};top:${bubble.bubbleY}%;margin-left:${bubble.bubbleX}%">
+    ${bubble.bubbleY}
     </li>
     `
     )
