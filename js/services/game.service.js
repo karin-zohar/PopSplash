@@ -35,9 +35,10 @@ function getSpeed() {
 }
 
 function updateLives() {
+    if (!gGame.lives) return
     gGame.lives--
-    // renderLives()
-    //TODO: emit 'lives changed' event
+    eventBusService.publish('livesChanged', gGame.lives)
+    if (gGame.lives === 0) gameOver()
 }
 
 function gameOver() {

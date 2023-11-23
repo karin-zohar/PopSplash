@@ -14,6 +14,7 @@ function onStartGame() {
     console.log('starting game')
     gameService.startGame()
     eventBusService.subscribe('gBubblesChanged', renderBubbles)
+    eventBusService.subscribe('livesChanged', renderLives)
     renderLives()
 }
 

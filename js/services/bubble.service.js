@@ -9,7 +9,7 @@ export const bubbleService = {
 
 let gGravityInterval
 
-const gBubbles = []
+let gBubbles = []
 
 function addBubble() {
     const newBubble = { bubbleX: utilService.getRandomInt(0, 70), bubbleY: 0, color: utilService.getColor(), isPopped: false }
@@ -31,6 +31,7 @@ function updateGravity(bubbleIndex) {
         console.log('currBubble.bubbleY: ', currBubble.bubbleY)
         console.log('currBubble.color: ', currBubble.color)
         gBubbles.splice(bubbleIndex, 1)
+        gameService.updateLives()
     }
     eventBusService.publish('gBubblesChanged', gBubbles)
     //TODO: emit "bubbles changed" event
