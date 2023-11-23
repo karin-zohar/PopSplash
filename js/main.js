@@ -1,58 +1,34 @@
-const LIFE = '💗'
-const SPEED = 1
-const gGame = {
-    lives: 4,
-    score: 0
-}
+import {gameService} from './services/game.service.js'
+import { bubbleService } from "./services/bubble.service.js"
 
-const gBubbles = []
+window.onInit = onInit
+window.onStartGame = onStartGame
 
-let gNewBubbleInterval
-let gGravityInterval
 
 function onInit() {
     console.log('hello')
 }
 
-function startGame() {
-    console.log('starting game');
-    console.log('gGame: ', gGame)
-    gNewBubbleInterval = setInterval(addBubble, 3000)
-
+function onStartGame() {
+    console.log('starting game')
+    gameService.startGame()
+    renderLives()
 }
 
-function addBubble() {
-    const newBubble = {bubbleX: getRandomInt(0,70), bubbleY: 0, color: getColor() ,isPopped: false}
-    gBubbles.push(newBubble)
-    gGravityInterval = setInterval(updateGravity, 200, gBubbles.indexOf(newBubble))
-    renderBubbles()
+function renderLives() {
+    const LIFE = '💗'
+    const elLives = document.querySelector('.lives span')
+    elLives.innerHTML = LIFE.repeat(gameService.getLives())
 }
 
-function updateGravity(bubbleIndex) {
-    const currBubble = gBubbles[bubbleIndex]
-    if (!currBubble) return
-    gBubbles[bubbleIndex].bubbleY += SPEED
-
-    if (currBubble.bubbleY > 85) {
-        //once the bubble reaches this low, remove it
-        console.log('currBubble.bubbleY: ', currBubble.bubbleY)
-        console.log('currBubble.color: ', currBubble.color)
-        gBubbles.splice(bubbleIndex,1) 
-    }
-    renderBubbles()
+function renderBubbles() {
+    const bubbles = bubbleService.getBubbles()
+    let strHTML = bubbles.map(bubble => `
+    <li class="bubble" style="background-color:#${bubble.color};top:${bubble.bubbleY}%;margin-left:${bubble.bubbleX}%">
+    ${bubble.bubbleY}
+    </li>
+    `
+    )
+    const elBubbleList = document.querySelector('.bubbles')
+    elBubbleList.innerHTML = strHTML.join('')
 }
-
-function updateLives() {
-    gGame.lives--
-    renderlives()
-}
-
-function gameOver() {
-    console.log('game is over')
-    clearInterval(gNewBubbleInterval)
-    //displayGameOver()
-}
-
-
-
-

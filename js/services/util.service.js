@@ -1,4 +1,7 @@
-'use strict'
+export const utilService = {
+    getRandomInt,
+    getColor
+}
 
 function getRandomInt(min, max) {
     min = Math.ceil(min)
