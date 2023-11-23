@@ -1,5 +1,6 @@
-import {gameService} from './services/game.service.js'
+import { gameService } from './services/game.service.js'
 import { bubbleService } from "./services/bubble.service.js"
+import { eventBusService } from './services/event-bus.service.js'
 
 window.onInit = onInit
 window.onStartGame = onStartGame
@@ -12,6 +13,7 @@ function onInit() {
 function onStartGame() {
     console.log('starting game')
     gameService.startGame()
+    eventBusService.subscribe('gBubblesChanged', renderBubbles)
     renderLives()
 }
 

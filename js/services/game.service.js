@@ -1,5 +1,6 @@
 import { utilService } from './util.service.js'
 import { bubbleService } from './bubble.service.js'
+import { eventBusService } from './event-bus.service.js'
 
 export const gameService = {
     startGame,

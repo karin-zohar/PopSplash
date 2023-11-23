@@ -1,5 +1,6 @@
 import { utilService } from './util.service.js'
 import { gameService } from './game.service.js'
+import { eventBusService } from './event-bus.service.js'
 
 export const bubbleService = {
     addBubble,
@@ -14,7 +15,7 @@ function addBubble() {
     const newBubble = { bubbleX: utilService.getRandomInt(0, 70), bubbleY: 0, color: utilService.getColor(), isPopped: false }
     gBubbles.push(newBubble)
     gGravityInterval = setInterval(() => updateGravity(gBubbles.indexOf(newBubble)), 200)
-    // renderBubbles() 
+    eventBusService.publish('gBubblesChanged', gBubbles)
     //TODO: emit "bubbles changed" event
     console.log('gBubbles: ', gBubbles)
 }
@@ -31,7 +32,7 @@ function updateGravity(bubbleIndex) {
         console.log('currBubble.color: ', currBubble.color)
         gBubbles.splice(bubbleIndex, 1)
     }
-    // renderBubbles()
+    eventBusService.publish('gBubblesChanged', gBubbles)
     //TODO: emit "bubbles changed" event
 }
 
