@@ -38,7 +38,7 @@ function updateLives() {
     if (!gGame.lives) return
     gGame.lives--
     eventBusService.publish('livesChanged', gGame.lives)
-    if (gGame.lives === 0) gameOver()
+    if (gGame.lives === 0) gameOver() // the game ends when the player runs out of lives
 }
 
 function gameOver() {
