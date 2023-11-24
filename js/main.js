@@ -16,6 +16,7 @@ function onStartGame() {
     gameService.startGame()
     eventBusService.subscribe('gBubblesChanged', renderBubbles)
     eventBusService.subscribe('livesChanged', renderLives)
+    eventBusService.subscribe('gameIsOver', onGameOver)
     renderLives()
 }
 
@@ -44,12 +45,16 @@ function renderBubbles() {
 
 function onBubble(bubble) {
     const bubbleId = bubble.getAttribute('data-id')
-    bubbleService.removeBubble(bubbleId)
     playSound('pop')
+    bubbleService.removeBubble(bubbleId)
 }
 
 function playSound(soundType) {
     console.log(`playing sound: ${soundType}`)
     const sound = new Audio (`/assets/sounds/${soundType}.wav`)
     sound.play()
+}
+
+function onGameOver() {
+    playSound('gameover')
 }

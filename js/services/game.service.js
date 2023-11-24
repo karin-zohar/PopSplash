@@ -45,5 +45,6 @@ function updateLives() {
 
 function gameOver() {
     console.log('game is over')
+    eventBusService.publish('gameIsOver')
     clearInterval(gNewBubbleInterval)
 }
