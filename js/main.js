@@ -4,6 +4,7 @@ import { eventBusService } from './services/event-bus.service.js'
 
 window.onInit = onInit
 window.onStartGame = onStartGame
+window.onBubble = onBubble
 
 
 function onInit() {
@@ -27,11 +28,21 @@ function renderLives() {
 function renderBubbles() {
     const bubbles = bubbleService.getBubbles()
     let strHTML = bubbles.map(bubble => `
-    <li class="bubble" style="background-color:#${bubble.color};top:${bubble.bubbleY}%;margin-left:${bubble.bubbleX}%">
+    <li 
+    data-id="${bubble.id}" 
+    onclick="onBubble(this)"
+    class="bubble" 
+    style="background-color:#${bubble.color};top:${bubble.bubbleY}%;margin-left:${bubble.bubbleX}%"
+    >
     ${bubble.bubbleY}
     </li>
     `
     )
     const elBubbleList = document.querySelector('.bubbles')
     elBubbleList.innerHTML = strHTML.join('')
+}
+
+function onBubble(bubble) {
+    const bubbleId = bubble.getAttribute('data-id')
+    bubbleService.removeBubble(bubbleId)
 }

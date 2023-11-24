@@ -4,31 +4,42 @@ import { eventBusService } from './event-bus.service.js'
 
 export const bubbleService = {
     addBubble,
-    getBubbles
+    removeBubble,
+    getBubbles,
+    getBubbleById
 }
 
 let gGravityInterval
-
 let gBubbles = []
 
 function addBubble() {
-    const newBubble = { bubbleX: utilService.getRandomInt(0, 70), bubbleY: 0, color: utilService.getColor(), isPopped: false }
+    const newBubble = { id: utilService.makeId() , bubbleX: utilService.getRandomInt(0, 70), bubbleY: 0, color: utilService.getColor()}
     gBubbles.push(newBubble)
-    gGravityInterval = setInterval(() => updateGravity(gBubbles.indexOf(newBubble)), 200)
+    gGravityInterval = setInterval(() => updateGravity(newBubble.id), 200)
     //DONE: emit "bubbles changed" event
     eventBusService.publish('gBubblesChanged', gBubbles)
-    console.log('gBubbles: ', gBubbles)
 }
 
+function removeBubble(bubbleId) {
+    gBubbles = gBubbles.filter(bubble => bubble.id !== bubbleId)
+    eventBusService.publish('gBubblesChanged', gBubbles) 
+}
 
-function updateGravity(bubbleIndex) {
-    const currBubble = gBubbles[bubbleIndex]
+function getBubbleById(bubbleId) {
+    const bubbleIdx = gBubbles.findIndex(bubble => bubble.id === bubbleId)
+    return gBubbles[bubbleIdx]
+}
+
+function updateGravity(bubbleId) {
+    const currBubble = getBubbleById(bubbleId)
     if (!currBubble) return
-    gBubbles[bubbleIndex].bubbleY += gameService.getSpeed()
+    console.log('currBubble found')
+    const currBubbleIdx = gBubbles.indexOf(currBubble)
+    gBubbles[currBubbleIdx].bubbleY += gameService.getSpeed()
 
     if (currBubble.bubbleY > 85) {
         //once the bubble reaches this low, remove it
-        gBubbles.splice(bubbleIndex, 1)
+        removeBubble(bubbleId)
         gameService.updateLives()
     }
     //DONE: emit "bubbles changed" event

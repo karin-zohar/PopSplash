@@ -1,7 +1,10 @@
 export const utilService = {
     getRandomInt,
-    getColor
+    getColor,
+    makeId
 }
+
+let gNextIdx = 100
 
 function getRandomInt(min, max) {
     min = Math.ceil(min)
@@ -12,4 +15,9 @@ function getRandomInt(min, max) {
 function getColor() {
     const colors = ['ffbe0b','fb5607','ff006e','8338ec','3a86ff']
     return colors[getRandomInt(0, colors.length)]
+}
+
+function makeId() {
+    gNextIdx++
+    return 'b' + gNextIdx
 }

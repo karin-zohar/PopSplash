@@ -22,8 +22,10 @@ let gNewBubbleInterval
 function startGame() {
     console.log('starting game');
     console.log('gGame: ', gGame)
+    //adding the first bubble manually so the game doesn't delay
+    bubbleService.addBubble()
+    //a new bubble will be added every 3 seconds
     gNewBubbleInterval = setInterval(bubbleService.addBubble, 3000)
-
 }
 
 function getLives() {
