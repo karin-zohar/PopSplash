@@ -33,7 +33,6 @@ function getBubbleById(bubbleId) {
 function updateGravity(bubbleId) {
     const currBubble = getBubbleById(bubbleId)
     if (!currBubble) return
-    console.log('currBubble found')
     const currBubbleIdx = gBubbles.indexOf(currBubble)
     gBubbles[currBubbleIdx].bubbleY += gameService.getSpeed()
 

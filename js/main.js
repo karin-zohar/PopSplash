@@ -45,4 +45,11 @@ function renderBubbles() {
 function onBubble(bubble) {
     const bubbleId = bubble.getAttribute('data-id')
     bubbleService.removeBubble(bubbleId)
+    playSound('pop')
+}
+
+function playSound(soundType) {
+    console.log(`playing sound: ${soundType}`)
+    const sound = new Audio (`/assets/sounds/${soundType}.wav`)
+    sound.play()
 }
