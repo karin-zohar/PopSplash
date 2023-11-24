@@ -16,14 +16,21 @@ function onStartGame() {
     gameService.startGame()
     eventBusService.subscribe('gBubblesChanged', renderBubbles)
     eventBusService.subscribe('livesChanged', renderLives)
+    eventBusService.subscribe('scoreChanged', renderScore)
     eventBusService.subscribe('gameIsOver', onGameOver)
     renderLives()
+    renderScore()
 }
 
 function renderLives() {
     const LIFE = '💗'
     const elLives = document.querySelector('.lives span')
-    elLives.innerHTML = LIFE.repeat(gameService.getLives())
+    elLives.innerHTML = LIFE.repeat(gameService.getGame().lives)
+}
+
+function renderScore() {
+    const elScore = document.querySelector('.score span')
+    elScore.innerHTML = gameService.getGame().score
 }
 
 function renderBubbles() {
@@ -45,6 +52,7 @@ function renderBubbles() {
 
 function onBubble(bubble) {
     const bubbleId = bubble.getAttribute('data-id')
+    gameService.updateScore()
     playSound('pop')
     bubbleService.removeBubble(bubbleId)
 }

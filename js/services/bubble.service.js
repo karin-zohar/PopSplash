@@ -15,7 +15,7 @@ let gBubbles = []
 function addBubble() {
     const newBubble = { id: utilService.makeId() , bubbleX: utilService.getRandomInt(0, 70), bubbleY: 0, color: utilService.getColor()}
     gBubbles.push(newBubble)
-    gGravityInterval = setInterval(() => updateGravity(newBubble.id), 200)
+    gGravityInterval = setInterval(() => updateGravity(newBubble.id), 100)
     //DONE: emit "bubbles changed" event
     eventBusService.publish('gBubblesChanged', gBubbles)
 }

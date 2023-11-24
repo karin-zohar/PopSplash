@@ -5,8 +5,9 @@ import { eventBusService } from './event-bus.service.js'
 export const gameService = {
     startGame,
     updateLives,
+    updateScore,
     gameOver,
-    getLives,
+    getGame,
     getSpeed,
 }
 
@@ -28,8 +29,8 @@ function startGame() {
     gNewBubbleInterval = setInterval(bubbleService.addBubble, 3000)
 }
 
-function getLives() {
-    return gGame.lives
+function getGame() {
+    return gGame
 }
 
 function getSpeed() {
@@ -41,6 +42,11 @@ function updateLives() {
     gGame.lives--
     eventBusService.publish('livesChanged', gGame.lives)
     if (gGame.lives === 0) gameOver() // the game ends when the player runs out of lives
+}
+
+function updateScore() {
+    gGame.score++
+    eventBusService.publish('scoreChanged', gGame.score)
 }
 
 function gameOver() {
