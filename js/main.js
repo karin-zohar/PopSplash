@@ -14,10 +14,20 @@ function onInit() {
 function onStartGame() {
     console.log('starting game')
     gameService.startGame()
+    subscribeToEvents()
+    renderInitialStats()
+}
+
+function subscribeToEvents() {
     eventBusService.subscribe('gBubblesChanged', renderBubbles)
     eventBusService.subscribe('livesChanged', renderLives)
     eventBusService.subscribe('scoreChanged', renderScore)
     eventBusService.subscribe('gameIsOver', onGameOver)
+}
+
+function renderInitialStats() {
+    const elStats = document.querySelector('.stats')
+    elStats.hidden = false
     renderLives()
     renderScore()
 }
@@ -51,18 +61,24 @@ function renderBubbles() {
 }
 
 function onBubble(bubble) {
-    const bubbleId = bubble.getAttribute('data-id')
-    gameService.updateScore()
-    playSound('pop')
-    bubbleService.removeBubble(bubbleId)
+    try {
+        console.log('Bubble clicked')
+        const bubbleId = bubble.getAttribute('data-id')
+        gameService.updateScore()
+        bubbleService.removeBubble(bubbleId)
+        playSound('pop')
+    } catch (error) {
+        console.error('An error occurred: ', error)
+    }
 }
 
 function playSound(soundType) {
     console.log(`playing sound: ${soundType}`)
-    const sound = new Audio (`/assets/sounds/${soundType}.wav`)
+    const sound = new Audio(`/assets/sounds/${soundType}.wav`)
     sound.play()
 }
 
 function onGameOver() {
     playSound('gameover')
 }
+

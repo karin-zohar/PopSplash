@@ -37,7 +37,6 @@ button {
 .bubble {
     cursor: pointer;
     position: absolute;
-    display: inline;
     width: 80px;
     height: 80px;
     border-radius: 50%;
