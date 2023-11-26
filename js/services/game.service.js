@@ -9,9 +9,16 @@ export const gameService = {
     gameOver,
     getGame,
     getSpeed,
+    getSettings,
+    toggleSetting
 }
 
 const SPEED = 1
+
+const gSettings = {
+    mute: false
+}
+
 const gGame = {
     lives: 4,
     score: 0
@@ -35,6 +42,14 @@ function getGame() {
 
 function getSpeed() {
     return SPEED
+}
+
+function getSettings() {
+    return gSettings
+}
+
+function toggleSetting(setting) {
+    gSettigns[setting] = !gSetting[setting]
 }
 
 function updateLives() {

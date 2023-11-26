@@ -73,7 +73,7 @@ function onBubble(bubble) {
 }
 
 function playSound(soundType) {
-    console.log(`playing sound: ${soundType}`)
+    if (gameService.getSettings().mute) return
     const sound = new Audio(`/assets/sounds/${soundType}.wav`)
     sound.play()
 }
