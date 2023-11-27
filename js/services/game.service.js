@@ -15,7 +15,7 @@ export const gameService = {
 
 const SPEED = 1
 
-const gSettings = {
+const gSettings = { 
     mute: false
 }
 
