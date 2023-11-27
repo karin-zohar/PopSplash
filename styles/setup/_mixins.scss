@@ -1,0 +1,17 @@
+
+// Buttons 
+@mixin basic-btn {
+    color: $light-text-clr;
+    font-weight: bold;
+    letter-spacing: 0.3em;
+    padding: 1em;
+    border: 2px solid $primary-clr;
+    border-radius: 2em;
+    background-color: $primary-clr;
+    transition: 0.3s;
+
+    &:hover {
+        color: $primary-clr;
+        background-color: $background-clr;
+    }
+}

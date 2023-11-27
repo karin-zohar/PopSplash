@@ -1,17 +1,19 @@
 /* SETUP */
 @import 'setup/_vars.scss';
+@import 'setup/_functions.scss';
+@import 'setup/_mixins.scss';
 // @import 'setup/_typography.scss';
 
 /* BASICS */
 
 @import 'basics/_base.scss';
-/* @import 'basics/_helpers.scss';
-@import 'basics/_layout.scss'; */
+@import 'basics/_helpers.scss';
+@import 'basics/_layout.scss';
 
 /* COMPONENTS */
 @import 'comps/_game-container.scss';
-@import 'comps/_bubble.scss'
+@import 'comps/_bubble.scss';
 
 /* MEDIA */
 
-/* @import 'setup/_mq.scss'; */
+// @import 'setup/_mq.scss'; 
