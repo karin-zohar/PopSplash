@@ -1,0 +1,14 @@
+.stats {
+    &[hidden] {
+        display: none;
+    }
+
+    display: flex;
+    >* {
+        margin: 1em;
+        background-color: $secondary-clr;
+        padding-inline: 1em;
+        border-radius: 1em;
+    }
+
+}

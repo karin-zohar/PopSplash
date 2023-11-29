@@ -20,6 +20,7 @@ body li, body ul {
 }
 body button {
   cursor: pointer;
+  font-family: OpenSans;
   color: #fefad4;
   font-weight: bold;
   letter-spacing: 0.3em;
@@ -32,6 +33,10 @@ body button {
 body button:hover {
   color: #e647ac;
   background-color: #f6fef9;
+}
+
+.flex {
+  display: flex;
 }
 
 .main-layout {
@@ -50,6 +55,19 @@ body button:hover {
   font-family: UnicaOne;
   text-align: center;
   color: #e647ac;
+}
+
+.stats {
+  display: flex;
+}
+.stats[hidden] {
+  display: none;
+}
+.stats > * {
+  margin: 1em;
+  background-color: #c9f8da;
+  padding-inline: 1em;
+  border-radius: 1em;
 }
 
 .game-container {
