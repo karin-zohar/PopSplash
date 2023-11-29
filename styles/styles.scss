@@ -2,7 +2,7 @@
 @import 'setup/_vars.scss';
 @import 'setup/_functions.scss';
 @import 'setup/_mixins.scss';
-// @import 'setup/_typography.scss';
+@import 'setup/_typography.scss';
 
 /* BASICS */
 
@@ -11,6 +11,7 @@
 @import 'basics/_layout.scss';
 
 /* COMPONENTS */
+@import 'comps/_main-header.scss';
 @import 'comps/_game-container.scss';
 @import 'comps/_bubble.scss';
 
