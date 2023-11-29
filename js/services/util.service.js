@@ -1,7 +1,8 @@
 export const utilService = {
     getRandomInt,
     getColor,
-    makeId
+    makeId,
+    toggleElementVisibility
 }
 
 let gNextIdx = 100
@@ -20,4 +21,9 @@ function getColor() {
 function makeId() {
     gNextIdx++
     return 'b' + gNextIdx
+}
+
+function toggleElementVisibility(element) {
+    const el = document.querySelector(element)
+    el.hidden = !el.hidden
 }

@@ -1,6 +1,7 @@
 import { gameService } from './services/game.service.js'
 import { bubbleService } from "./services/bubble.service.js"
 import { eventBusService } from './services/event-bus.service.js'
+import { utilService } from './services/util.service.js'
 
 window.onInit = onInit
 window.onStartGame = onStartGame
@@ -16,6 +17,7 @@ function onStartGame() {
     gameService.startGame()
     subscribeToEvents()
     renderInitialStats()
+    toggleGameUI()
 }
 
 function subscribeToEvents() {
@@ -26,10 +28,14 @@ function subscribeToEvents() {
 }
 
 function renderInitialStats() {
-    const elStats = document.querySelector('.stats')
-    elStats.hidden = false
     renderLives()
     renderScore()
+}
+
+function toggleGameUI() {
+    utilService.toggleElementVisibility('.stats')
+    utilService.toggleElementVisibility('.game-container')
+    utilService.toggleElementVisibility('.start-game-btn')
 }
 
 function renderLives() {
