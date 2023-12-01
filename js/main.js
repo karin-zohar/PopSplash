@@ -40,12 +40,12 @@ function toggleGameUI() {
 
 function renderLives() {
     const LIFE = '💗'
-    const elLives = document.querySelector('.lives span')
+    const elLives = document.querySelector('.lives .stat-data')
     elLives.innerHTML = LIFE.repeat(gameService.getGame().lives)
 }
 
 function renderScore() {
-    const elScore = document.querySelector('.score span')
+    const elScore = document.querySelector('.score .stat-data')
     elScore.innerHTML = gameService.getGame().score
 }
 

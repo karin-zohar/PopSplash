@@ -5,10 +5,23 @@
 
     display: flex;
     >* {
+        display: flex;
+        flex-direction: row;
         margin: 1em;
         background-color: $secondary-clr;
         padding-inline: 1em;
         border-radius: 1em;
-    }
+        font-weight: bold;
+        text-align: center;
+        justify-content: center;
 
+        span {
+            display: block;
+        }
+    }
+    
+    .lives {
+        min-width: 6rem; 
+    }
+  
 }

@@ -64,10 +64,21 @@ body button:hover {
   display: none;
 }
 .stats > * {
+  display: flex;
+  flex-direction: row;
   margin: 1em;
   background-color: #c9f8da;
   padding-inline: 1em;
   border-radius: 1em;
+  font-weight: bold;
+  text-align: center;
+  justify-content: center;
+}
+.stats > * span {
+  display: block;
+}
+.stats .lives {
+  min-width: 6rem;
 }
 
 .game-container {
