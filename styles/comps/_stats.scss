@@ -3,6 +3,7 @@
         display: none;
     }
 
+    // When visible:
     display: flex;
     >* {
         display: flex;
@@ -23,5 +24,4 @@
     .lives {
         min-width: 6rem; 
     }
-  
 }

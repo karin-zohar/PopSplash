@@ -1,12 +1,18 @@
 body {
     background-color: $background-clr;
     color: $text-clr;
-    font-family: OpenSans;
+    font-family: Poppins;
 
     li, ul {
         list-style: none;
         padding: 0;
         margin: 0;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+        font-size: 1rem;
     }
 
     button {

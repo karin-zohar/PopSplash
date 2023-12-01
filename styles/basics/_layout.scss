@@ -10,3 +10,19 @@
         grid-column: 1/ -1;
     }
 }
+
+.base-layout {
+    grid-template-rows: 1fr minmax(100vh, auto) 1fr;
+
+    >*:not(.app-header, .app-footer) {
+        grid-row: 2;
+    }
+
+    .app-header {
+        grid-row: 1;
+    }
+
+    .app-footer {
+        grid-row: 3;
+    }
+}

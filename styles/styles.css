@@ -7,20 +7,48 @@
   font-family: OpenSans;
   src: url(../../assets/fonts/OpenSans/OpenSans-VariableFont_wdth\,wght.ttf);
 }
+@font-face {
+  font-family: Poppins;
+  src: url(../../assets/fonts/Poppins/Poppins-Regular.ttf);
+}
+@font-face {
+  font-family: fa;
+  src: url(../../assets/fonts/fontAwesome/fontawesome-free-6.4.0-web/webfonts/fa-brands-400.ttf);
+}
+.fa::before {
+  font-family: fa;
+  font-weight: normal;
+  font-size: 2rem;
+}
+.fa.linkedin::before {
+  content: "\f08c";
+}
+.fa.github::before {
+  content: "\f092";
+}
+.fa.email::before {
+  content: "\f0e0";
+}
+
 /* BASICS */
 body {
   background-color: #f6fef9;
   color: #03160a;
-  font-family: OpenSans;
+  font-family: Poppins;
 }
 body li, body ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+body a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1rem;
+}
 body button {
   cursor: pointer;
-  font-family: OpenSans;
+  font-family: Poppins;
   color: #fefad4;
   font-weight: bold;
   letter-spacing: 0.3em;
@@ -50,8 +78,21 @@ body button:hover {
   grid-column: 1/-1;
 }
 
+.base-layout {
+  grid-template-rows: 1fr minmax(100vh, auto) 1fr;
+}
+.base-layout > *:not(.app-header, .app-footer) {
+  grid-row: 2;
+}
+.base-layout .app-header {
+  grid-row: 1;
+}
+.base-layout .app-footer {
+  grid-row: 3;
+}
+
 /* COMPONENTS */
-.main-header .main-title {
+.app-header .main-title {
   font-family: UnicaOne;
   text-align: center;
   color: #e647ac;
@@ -102,6 +143,11 @@ body button:hover {
   border-radius: 50%;
   border: 2px solid black;
   text-align: center;
+}
+
+.app-footer {
+  text-align: center;
+  line-height: 2.25;
 }
 
 /* MEDIA *//*# sourceMappingURL=styles.css.map */
