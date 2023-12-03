@@ -1,4 +1,34 @@
 .app-footer {
     text-align: center;
     line-height: 2.25;
+
+    .social-links-container {
+        >* {
+            margin-inline: 0.3em;
+
+            &::before {
+                content: '';
+                font-family: fa-brands;
+                font-size: 2rem;
+
+                &:hover {
+                    color: $primary-clr;
+                }
+            }
+        }
+
+        .linkedin::before {
+            content: '\f08c';
+        }
+
+        .github::before {
+            content: '\f092'
+        }
+
+        .email::before {
+            font-family: fa-solid;
+            content: '\f199';
+        }
+
+    }
 }

@@ -12,31 +12,21 @@
   src: url(../../assets/fonts/Poppins/Poppins-Regular.ttf);
 }
 @font-face {
-  font-family: fa;
-  src: url(../../assets/fonts/fontAwesome/fontawesome-free-6.4.0-web/webfonts/fa-brands-400.ttf);
+  font-family: fa-brands;
+  src: url("../../assets/fonts/fontAwesome/fontawesome-free-6.5.1-web/webfonts/fa-brands-400.ttf");
 }
-.fa::before {
-  font-family: fa;
-  font-weight: normal;
-  font-size: 2rem;
+@font-face {
+  font-family: fa-solid;
+  src: url("../../assets/fonts/fontAwesome/fontawesome-free-6.5.1-web/webfonts/fa-solid-900.ttf");
 }
-.fa.linkedin::before {
-  content: "\f08c";
-}
-.fa.github::before {
-  content: "\f092";
-}
-.fa.email::before {
-  content: "\f0e0";
-}
-
 /* BASICS */
 body {
   background-color: #f6fef9;
   color: #03160a;
   font-family: Poppins;
 }
-body li, body ul {
+body li,
+body ul {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -45,6 +35,9 @@ body a {
   text-decoration: none;
   color: inherit;
   font-size: 1rem;
+}
+body a:hover {
+  color: #e647ac;
 }
 body button {
   cursor: pointer;
@@ -148,6 +141,27 @@ body button:hover {
 .app-footer {
   text-align: center;
   line-height: 2.25;
+}
+.app-footer .social-links-container > * {
+  margin-inline: 0.3em;
+}
+.app-footer .social-links-container > *::before {
+  content: "";
+  font-family: fa-brands;
+  font-size: 2rem;
+}
+.app-footer .social-links-container > *::before:hover {
+  color: #e647ac;
+}
+.app-footer .social-links-container .linkedin::before {
+  content: "\f08c";
+}
+.app-footer .social-links-container .github::before {
+  content: "\f092";
+}
+.app-footer .social-links-container .email::before {
+  font-family: fa-solid;
+  content: "\f199";
 }
 
 /* MEDIA *//*# sourceMappingURL=styles.css.map */
