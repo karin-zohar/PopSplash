@@ -1,5 +1,12 @@
 //Layout
 
+// Display 
+// for hidden elements where the display property overrules the HTML "hidden" attribute:
+@mixin toggle-display {
+    &[hidden] {
+        display: none;
+    }
+}
 
 // Buttons 
 @mixin basic-btn {
@@ -12,6 +19,8 @@
     border-radius: 2em;
     background-color: $primary-clr;
     transition: 0.3s;
+    height: max-content;
+    width: max-content;
 
     &:hover {
         color: $primary-clr;

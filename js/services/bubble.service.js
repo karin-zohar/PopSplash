@@ -6,7 +6,8 @@ export const bubbleService = {
     addBubble,
     removeBubble,
     getBubbles,
-    getBubbleById
+    getBubbleById,
+    removeAllBubbles
 }
 
 let gGravityInterval
@@ -47,4 +48,8 @@ function updateGravity(bubbleId) {
 
 function getBubbles() {
     return gBubbles
+}
+
+function removeAllBubbles() {
+    gBubbles = []
 }

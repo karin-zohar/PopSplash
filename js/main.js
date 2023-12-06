@@ -33,9 +33,8 @@ function renderInitialStats() {
 }
 
 function toggleGameUI() {
-    utilService.toggleElementVisibility('.stats')
-    utilService.toggleElementVisibility('.game-container')
-    utilService.toggleElementVisibility('.start-game-btn')
+    const elementsToToggle = ['.stats','.game-container','.tools']
+    elementsToToggle.forEach((el) => utilService.toggleElementVisibility(el))
 }
 
 function renderLives() {
@@ -86,5 +85,15 @@ function playSound(soundType) {
 
 function onGameOver() {
     playSound('gameover')
+    toggleGameUI()
+    displayGameOverTools()
 }
 
+function displayGameOverTools() {
+    utilService.toggleElementVisibility('.game-over-container')
+    const elStartGameBtn = document.querySelector('.start-game-btn')
+    elStartGameBtn.innerText = "Play Again"
+    
+    const elFinalScore = document.querySelector('.final-score')
+    elFinalScore.innerText = gameService.getGame().score
+}

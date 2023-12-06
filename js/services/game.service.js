@@ -19,6 +19,11 @@ const gSettings = {
     mute: false
 }
 
+const INITIAL_GAME = {
+    lives: 4,
+    score: 0
+}
+
 const gGame = {
     lives: 4,
     score: 0
@@ -28,8 +33,8 @@ let gNewBubbleInterval
 
 
 function startGame() {
-    console.log('starting game');
-    console.log('gGame: ', gGame)
+    // Resetting the game stats
+    Object.assign(gGame, INITIAL_GAME)
     //adding the first bubble manually so the game doesn't delay
     bubbleService.addBubble()
     //a new bubble will be added every 3 seconds
@@ -68,4 +73,5 @@ function gameOver() {
     console.log('game is over')
     eventBusService.publish('gameIsOver')
     clearInterval(gNewBubbleInterval)
+    bubbleService.removeAllBubbles()
 }

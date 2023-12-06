@@ -50,6 +50,10 @@ body button {
   border-radius: 2em;
   background-color: #e647ac;
   transition: 0.3s;
+  height: -moz-max-content;
+  height: max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 body button:hover {
   color: #e647ac;
@@ -89,6 +93,24 @@ body button:hover {
   font-family: UnicaOne;
   text-align: center;
   color: #e647ac;
+}
+
+.tools {
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  height: 200px;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+.tools[hidden] {
+  display: none;
+}
+.tools .final-score {
+  text-align: center;
+  font-size: 2rem;
 }
 
 .stats {

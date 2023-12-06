@@ -1,8 +1,5 @@
 .stats {
-    &[hidden] {
-        display: none;
-    }
-
+    @include toggle-display;
     // When visible:
     display: flex;
     >* {
