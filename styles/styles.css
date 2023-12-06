@@ -1,7 +1,7 @@
 /* SETUP */
 @font-face {
   font-family: UnicaOne;
-  src: url(/assets/fonts/UnicaOne/UnicaOne-Regular.ttf);
+  src: url("/assets/fonts/UnicaOne/UnicaOne-Regular.ttf");
 }
 @font-face {
   font-family: OpenSans;
