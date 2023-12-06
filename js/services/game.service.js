@@ -24,10 +24,7 @@ const INITIAL_GAME = {
     score: 0
 }
 
-const gGame = {
-    lives: 4,
-    score: 0
-}
+const gGame = {}
 
 let gNewBubbleInterval
 
