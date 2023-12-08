@@ -11,6 +11,10 @@
     align-items: center;
     align-self: center;
 
+    .start-game-btn {
+        @include basic-btn;
+    }
+
     .final-score {
         text-align: center;
         font-size: 2rem;

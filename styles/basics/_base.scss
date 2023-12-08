@@ -2,7 +2,7 @@ body {
     background-color: $background-clr;
     color: $text-clr;
     font-family: Poppins;
-
+    
     li,
     ul {
         list-style: none;
@@ -20,9 +20,11 @@ body {
         }
     }
 
+    h1 {
+        margin-bottom: 0;
+    }
+
     button {
         cursor: pointer;
-        @include basic-btn;
-
     }
 }

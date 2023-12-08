@@ -39,25 +39,11 @@ body a {
 body a:hover {
   color: #e647ac;
 }
+body h1 {
+  margin-bottom: 0;
+}
 body button {
   cursor: pointer;
-  font-family: Poppins;
-  color: #fefad4;
-  font-weight: bold;
-  letter-spacing: 0.3em;
-  padding: 1em;
-  border: 2px solid #e647ac;
-  border-radius: 2em;
-  background-color: #e647ac;
-  transition: 0.3s;
-  height: -moz-max-content;
-  height: max-content;
-  width: -moz-max-content;
-  width: max-content;
-}
-body button:hover {
-  color: #e647ac;
-  background-color: #f6fef9;
 }
 
 .flex {
@@ -76,7 +62,7 @@ body button:hover {
 }
 
 .base-layout {
-  grid-template-rows: 1fr minmax(100vh, auto) 1fr;
+  grid-template-rows: 0.5fr minmax(100vh, auto) 1fr;
 }
 .base-layout > *:not(.app-header, .app-footer) {
   grid-row: 2;
@@ -95,6 +81,37 @@ body button:hover {
   color: #e647ac;
 }
 
+.app-nav {
+  height: 60px;
+  margin-bottom: 20px;
+}
+.app-nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+.app-nav ul li button {
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.app-nav ul li button:hover {
+  color: #e647ac;
+}
+.app-nav ul li:not(:last-child)::after {
+  content: "|";
+  margin-left: 0.5em;
+}
+.app-nav .toggle-settings::before {
+  cursor: pointer;
+  font-family: fa-solid;
+  content: "\f013";
+  font-size: 1rem;
+}
+
 .tools {
   display: flex;
   flex-direction: column;
@@ -107,6 +124,25 @@ body button:hover {
 }
 .tools[hidden] {
   display: none;
+}
+.tools .start-game-btn {
+  font-family: Poppins;
+  color: #fefad4;
+  font-weight: bold;
+  letter-spacing: 0.3em;
+  padding: 1em;
+  border: 2px solid #e647ac;
+  border-radius: 2em;
+  background-color: #e647ac;
+  transition: 0.3s;
+  height: -moz-max-content;
+  height: max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.tools .start-game-btn:hover {
+  color: #e647ac;
+  background-color: #f6fef9;
 }
 .tools .final-score {
   text-align: center;

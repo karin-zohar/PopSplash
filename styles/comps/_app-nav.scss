@@ -1,0 +1,36 @@
+.app-nav {
+    height: 60px;
+    margin-bottom: 20px;
+    
+    ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+
+        li {
+            button {
+                @include clean-btn;
+                &:hover {
+                    color: $primary-clr;
+                }
+            }
+
+            &:not(:last-child)::after {
+                content: '|';
+                margin-left: 0.5em;
+            }
+        }
+    }
+
+    .toggle-settings{
+        &::before {
+            cursor: pointer;
+            // color: $primary-clr;
+            font-family: fa-solid;
+            content: '\f013';
+            font-size: 1rem;
+
+        }
+    }
+}

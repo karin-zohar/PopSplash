@@ -12,7 +12,7 @@
 }
 
 .base-layout {
-    grid-template-rows: 1fr minmax(100vh, auto) 1fr;
+    grid-template-rows: 0.5fr minmax(100vh, auto) 1fr;
 
     >*:not(.app-header, .app-footer) {
         grid-row: 2;
@@ -21,7 +21,6 @@
     .app-header {
         grid-row: 1;
     }
-
     .app-footer {
         grid-row: 3;
     }

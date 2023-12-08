@@ -6,6 +6,7 @@ import { utilService } from './services/util.service.js'
 window.onInit = onInit
 window.onStartGame = onStartGame
 window.onBubble = onBubble
+window.onToggleModal = onToggleModal
 
 
 function onInit() {
@@ -96,4 +97,9 @@ function displayGameOverTools() {
     
     const elFinalScore = document.querySelector('.final-score')
     elFinalScore.innerText = gameService.getGame().score
+}
+
+function onToggleModal(el) {
+    const modalType = el.dataset.modal
+    utilService.toggleElementVisibility(`.modal.${modalType}`)
 }

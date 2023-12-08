@@ -12,7 +12,22 @@
 <body onload="onInit()" class="main-layout base-layout">
     <header class="app-header full">
         <h1 class="main-title">PopSplash</h1>
+        <nav class="app-nav main-layout full">
+            <ul>
+                <li>
+                    <button data-modal="settings" onClick="onToggleModal(this)" class="toggle-settings"
+                        title="Settings">
+                    </button>
+                </li>
+                <li>
+                    <button data-modal="leaderboard" onClick="onToggleModal(this)">
+                        Leaderboard
+                    </button>
+                </li>
+            </ul>
+        </nav>
     </header>
+
 
     <main>
         <section class="stats" hidden>
@@ -43,17 +58,23 @@
             <button class="btn start-game-btn" onClick="onStartGame()">Start Game</button>
         </div>
 
+        <!-- Modals -->
+        <section class="settings modal" hidden> ####SETTINGS####</section>
+        <section class="leaderboard modal" hidden>^^^^LEADERBOARD^^^</section>
+
     </main>
 
     <footer class="app-footer">
         Made with ❤ by Karin Zohar, 2023
         <section class="social-links-container">
             <a href="https://github.com/karin-zohar" class="fa github" title="Github" target="_blank">&nbsp;</a>
-            <a href="https://www.linkedin.com/in/karin-zohar-5974b8281/" class="fa linkedin" title="Linkedin" target="_blank">&nbsp;</a>
-            <a href="mailto:karinzohar3@gmail.com" class=" fa email" title="Email the developer" target="_blank">&nbsp;</a>
+            <a href="https://www.linkedin.com/in/karin-zohar-5974b8281/" class="fa linkedin" title="Linkedin"
+                target="_blank">&nbsp;</a>
+            <a href="mailto:karinzohar3@gmail.com" class=" fa email" title="Email the developer"
+                target="_blank">&nbsp;</a>
         </section>
     </footer>
-    
+
 
     <script type="module" src="js/main.js"></script>
 </body>
