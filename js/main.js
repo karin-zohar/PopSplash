@@ -100,6 +100,15 @@ function displayGameOverTools() {
 }
 
 function onToggleModal(el) {
+    // Open the modal
+    utilService.setElementVisibility(`.modal-container`, true)
+    // Hide all modal types
+    const allModalTypes = document.querySelectorAll('.modal-container article')
+    allModalTypes.forEach((modalType) => {
+        modalType.classList.remove('active')
+    })
+    // Set the modal type and make it visible
     const modalType = el.dataset.modal
-    utilService.toggleElementVisibility(`.modal.${modalType}`)
+    const activeModal = document.querySelector(`.${modalType}`)
+    activeModal.classList.add('active')
 }

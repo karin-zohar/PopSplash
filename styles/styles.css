@@ -222,4 +222,23 @@ body button {
   content: "\f199";
 }
 
+.modal-container {
+  position: absolute;
+  z-index: 3000;
+  width: 250px;
+  height: 250px;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid #e647ac;
+  background-color: #f6fef9;
+}
+.modal-container article {
+  display: none;
+  background-color: lightblue;
+}
+.modal-container article.active {
+  display: block;
+}
+
 /* MEDIA *//*# sourceMappingURL=styles.css.map */
