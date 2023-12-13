@@ -51,7 +51,8 @@ function getSettings() {
 }
 
 function toggleSetting(setting) {
-    gSettigns[setting] = !gSetting[setting]
+    gSettings[setting] = !gSettings[setting]
+    return gSettings[setting] // always a boolean
 }
 
 function updateLives() {

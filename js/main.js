@@ -7,6 +7,7 @@ window.onInit = onInit
 window.onStartGame = onStartGame
 window.onBubble = onBubble
 window.onToggleModal = onToggleModal
+window.onToggleSetting = onToggleSetting
 
 
 function onInit() {
@@ -34,7 +35,7 @@ function renderInitialStats() {
 }
 
 function toggleGameUI() {
-    const elementsToToggle = ['.stats','.game-container','.tools']
+    const elementsToToggle = ['.stats', '.game-container', '.tools']
     elementsToToggle.forEach((el) => utilService.toggleElementVisibility(el))
 }
 
@@ -94,7 +95,7 @@ function displayGameOverTools() {
     utilService.toggleElementVisibility('.game-over-container')
     const elStartGameBtn = document.querySelector('.start-game-btn')
     elStartGameBtn.innerText = "Play Again"
-    
+
     const elFinalScore = document.querySelector('.final-score')
     elFinalScore.innerText = gameService.getGame().score
 }
@@ -111,4 +112,18 @@ function onToggleModal(el) {
     const modalType = el.dataset.modal
     const activeModal = document.querySelector(`.${modalType}`)
     activeModal.classList.add('active')
+}
+
+function onToggleSetting(el) {
+    if (!el) return
+    const setting = el.dataset.setting
+    const updatedSetting = gameService.toggleSetting(setting) // returns boolean
+    console.log('updatedSetting: ', updatedSetting)
+    const elSettingIcon = el.querySelector('span.fa')
+    if (!elSettingIcon) return
+    if (updatedSetting) {
+        elSettingIcon.classList.add('active')
+    } else {
+        elSettingIcon.classList.remove('active')
+    }
 }

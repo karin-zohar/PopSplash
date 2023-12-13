@@ -240,5 +240,21 @@ body button {
 .modal-container article.active {
   display: block;
 }
+.modal-container .settings ul li button {
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.modal-container .settings ul li .fa::after {
+  font-family: fa-solid;
+}
+.modal-container .settings ul li.mute button span::after {
+  content: "\f028";
+}
+.modal-container .settings ul li.mute button span.active::after {
+  content: "\f6a9";
+}
 
 /* MEDIA *//*# sourceMappingURL=styles.css.map */

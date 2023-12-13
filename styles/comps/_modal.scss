@@ -5,7 +5,7 @@
     height: 250px;
     top: 40%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     border: 2px solid $primary-clr;
     background-color: $background-clr;
 
@@ -15,6 +15,34 @@
 
         &.active {
             display: block;
+        }
+    }
+
+
+    .settings {
+        ul li {
+            button {
+                @include clean-btn;
+            }
+
+            .fa {
+                &::after {
+                    font-family: fa-solid;
+                }
+            }
+
+            &.mute {
+                button span {
+                    &::after {
+                        content: '\f028';
+                    }
+                    
+                    &.active::after {
+                        content: '\f6a9';
+                    }
+                }
+
+            }
         }
     }
 }
