@@ -10,39 +10,58 @@
     background-color: $background-clr;
 
     article {
+        box-sizing: border-box;
         display: none;
-        background-color: lightblue;
-
+        height: 100%;
+        padding: 1rem;
         &.active {
             display: block;
         }
     }
 
 
-    .settings {
-        ul li {
-            button {
-                @include clean-btn;
-            }
-
-            .fa {
-                &::after {
-                    font-family: fa-solid;
+    .settings.active {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        ul {
+            li {
+                button {
+                    @include clean-btn;
                 }
-            }
-
-            &.mute {
-                button span {
+    
+                .fa {
                     &::after {
-                        content: '\f028';
+                        font-family: fa-solid;
                     }
-                    
-                    &.active::after {
-                        content: '\f6a9';
+
+                    &:hover::after {
+                        color: $primary-clr;
                     }
+
                 }
 
+    
+                &.mute {
+                    button span {
+                        &::after {
+                            content: '\f028';
+                        }
+                        
+                        &.active::after {
+                            content: '\f6a9';
+                        }
+                    }
+    
+                }
             }
+
+        }
+        
+
+        .save-changes-btn {
+            @include basic-btn;
+            align-self: center;
         }
     }
 }

@@ -118,7 +118,6 @@ function onToggleSetting(el) {
     if (!el) return
     const setting = el.dataset.setting
     const updatedSetting = gameService.toggleSetting(setting) // returns boolean
-    console.log('updatedSetting: ', updatedSetting)
     const elSettingIcon = el.querySelector('span.fa')
     if (!elSettingIcon) return
     if (updatedSetting) {

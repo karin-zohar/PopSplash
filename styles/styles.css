@@ -234,27 +234,57 @@ body button {
   background-color: #f6fef9;
 }
 .modal-container article {
+  box-sizing: border-box;
   display: none;
-  background-color: lightblue;
+  height: 100%;
+  padding: 1rem;
 }
 .modal-container article.active {
   display: block;
 }
-.modal-container .settings ul li button {
+.modal-container .settings.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.modal-container .settings.active ul li button {
   border: none;
   background: none;
   font-family: inherit;
   font-size: 1rem;
   cursor: pointer;
 }
-.modal-container .settings ul li .fa::after {
+.modal-container .settings.active ul li .fa::after {
   font-family: fa-solid;
 }
-.modal-container .settings ul li.mute button span::after {
+.modal-container .settings.active ul li .fa:hover::after {
+  color: #e647ac;
+}
+.modal-container .settings.active ul li.mute button span::after {
   content: "\f028";
 }
-.modal-container .settings ul li.mute button span.active::after {
+.modal-container .settings.active ul li.mute button span.active::after {
   content: "\f6a9";
+}
+.modal-container .settings.active .save-changes-btn {
+  font-family: Poppins;
+  color: #fefad4;
+  font-weight: bold;
+  letter-spacing: 0.3em;
+  padding: 1em;
+  border: 2px solid #e647ac;
+  border-radius: 2em;
+  background-color: #e647ac;
+  transition: 0.3s;
+  height: -moz-max-content;
+  height: max-content;
+  width: -moz-max-content;
+  width: max-content;
+  align-self: center;
+}
+.modal-container .settings.active .save-changes-btn:hover {
+  color: #e647ac;
+  background-color: #f6fef9;
 }
 
 /* MEDIA *//*# sourceMappingURL=styles.css.map */
